@@ -1,10 +1,10 @@
-package website.catfeeler.gitpalp_mvp.presentation.splash;
+package website.catfeeler.gitpalp_mvp.presentation.activity.splash;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 
-import website.catfeeler.gitpalp_mvp.presentation.splash.di.SplashContract;
+import website.catfeeler.gitpalp_mvp.presentation.activity.login.LoginActivity;
 
 /**
  * Created by CAT_Caterpiller on 16.03.2017.
@@ -25,6 +25,6 @@ public final class SplashPresenter extends SplashContract.Presenter {
     @Override
     protected void startWithPostDelayed() {
         handler = new Handler();
-        handler.postDelayed(() -> view.startActivity(SplashActivity.class, null), SPLASH_DELAY);
+        handler.postDelayed(() -> view.startActivity(LoginActivity.class, null), SPLASH_DELAY);
     }
 }

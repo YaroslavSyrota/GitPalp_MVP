@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">GitPalp_MVP</string>
+
+    <!--   Login screen   -->
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="check_your_details">Please, check your details in the fields</string>
+
+    <!--   Dialog   -->
+    <string name="ok">Ok</string>
+    <string name="warning">Warning!</string>
+    <string name="fill_all_fields">Please fill in all fields!</string>
+    <string name="email_empty">Email is empty!</string>
+    <string name="password_empty">Password is empty!</string>
+    <string name="email_not_valid">Invalid email!</string>
+    <string name="password_not_valid">Invalid password!</string>
+
+    <!--   Home Activity   -->
+    <string name="search">search</string>
+    <string name="cancel">cancel</string>
+
+    <!--   Error messages   -->
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_timeout">Request timeout</string>
+    <string name="error_unknown">Unknown error</string>
+
+    <!--   Repository activity   -->
+    <!--<string name="description_is_missing">No description available</string>-->
+    <!--<string name="no_language">No language information</string>-->
 </resources>

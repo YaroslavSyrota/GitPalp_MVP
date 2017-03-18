@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_authorization">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/ProgressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/element_horizontal_padding"
+        android:layout_marginRight="@dimen/element_horizontal_padding"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/view_vertical_margin_normal"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_vertical_margin_pre_big"
+                android:layout_marginTop="@dimen/view_vertical_margin_big"
+                android:src="@drawable/ic_authorization"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etLogin_LA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etPassword_LA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_vertical_margin_normal"
+                android:gravity="center_horizontal"
+                android:text="@string/check_your_details"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/text_size_button"/>
+
+            <TextView
+                android:id="@+id/btnLogin_LA"
+                style="@style/AppTheme.Button.Accent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_vertical_margin_pre_big"
+                android:clickable="true"
+                android:text="@string/login"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

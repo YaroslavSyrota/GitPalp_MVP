@@ -1,9 +1,8 @@
-package website.catfeeler.gitpalp_mvp.presentation.splash;
+package website.catfeeler.gitpalp_mvp.presentation.activity.splash;
 
 import website.catfeeler.gitpalp_mvp.di.AppComponent;
 import website.catfeeler.gitpalp_mvp.presentation.base.BaseActivity;
-import website.catfeeler.gitpalp_mvp.presentation.splash.di.DaggerSplashComponent;
-import website.catfeeler.gitpalp_mvp.presentation.splash.di.SplashContract;
+import website.catfeeler.gitpalp_mvp.presentation.activity.splash.di.DaggerSplashComponent;
 
 /**
  * Created by CAT_Caterpiller on 16.03.2017.

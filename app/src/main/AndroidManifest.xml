@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".presentation.splash.SplashActivity"
+            android:name=".presentation.activity.splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
 
@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".presentation.activity.login.LoginActivity"
+                  android:screenOrientation="portrait"
+            android:theme="@style/FullScreenTheme"/>
+
 
     </application>
 

@@ -20,4 +20,26 @@
         <item name="colorControlNormal">@color/lightPrimary</item>
     </style>
 
+    <style name="AppTheme.Button">
+        <item name="android:paddingTop">@dimen/element_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/element_vertical_padding</item>
+        <item name="android:paddingLeft">@dimen/element_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/element_horizontal_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textColor">@color/lightPrimary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.Button.Accent" parent="AppTheme.Button">
+        <item name="android:background">@drawable/selector_button</item>
+    </style>
+
+    <style name="ProgressBarStyle" parent="Base.Widget.AppCompat.ProgressBar">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorAccent">@color/lightPrimary</item>
+        <item name="android:progressDrawable">@drawable/progress_layer</item>
+    </style>
+
 </resources>

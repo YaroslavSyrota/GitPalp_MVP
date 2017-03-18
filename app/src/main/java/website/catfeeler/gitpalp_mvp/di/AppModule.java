@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import website.catfeeler.gitpalp_mvp.App;
+import website.catfeeler.gitpalp_mvp.network.RestApiClient;
 
 /**
  * Created by CAT_Caterpiller on 16.03.2017.
@@ -21,9 +22,11 @@ public class AppModule {
         this.application = application;
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     Context provideContext(){
         return application.getApplicationContext();
     }
+
+    @Provides
+    public RestApiClient provideRestClient(){ return RestApiClient.getInstance(); }
 }

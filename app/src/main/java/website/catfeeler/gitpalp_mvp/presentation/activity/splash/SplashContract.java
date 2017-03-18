@@ -1,4 +1,4 @@
-package website.catfeeler.gitpalp_mvp.presentation.splash.di;
+package website.catfeeler.gitpalp_mvp.presentation.activity.splash;
 
 import website.catfeeler.gitpalp_mvp.presentation.base.BaseActivityContract;
 

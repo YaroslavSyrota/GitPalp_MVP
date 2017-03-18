@@ -3,6 +3,8 @@ package website.catfeeler.gitpalp_mvp.presentation.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 import website.catfeeler.gitpalp_mvp.di.AppComponent;
 
 /**
@@ -15,14 +17,17 @@ public interface BaseActivityContract {
         void findUI();
         void setupUI();
         void setupComponent(AppComponent appComponent);
+        void showErrorMessage(String message);
         <T extends BaseActivity> void startActivity(Class<T> tClass, @Nullable Bundle bundle);
-        //TODO delete this
-//        void setToolbarTitle(@StringRes int textRes);
         void readBundle(Bundle bundle);
-//        Intent getIntent();
     }
 
     abstract class Presenter<V extends View> implements BasePresenter<V> {
+        private CompositeSubscription compositeSubscription;
+
+        public Presenter() {
+            compositeSubscription = new CompositeSubscription();
+        }
 
         protected V view;
 
@@ -33,6 +38,9 @@ public interface BaseActivityContract {
 
         @Override
         public void onDestroyView() {
+            if (compositeSubscription.hasSubscriptions()) {
+                compositeSubscription.unsubscribe();
+            }
             view = null;
         }
 
@@ -40,5 +48,16 @@ public interface BaseActivityContract {
         public void onViewCreated(@Nullable Bundle savedInstanceState) {
 
         }
+
+        public void addSubscription(Subscription subscription) {
+            compositeSubscription.add(subscription);
+        }
+
+//        public <T> Observable<T> execute(Observable<T> observable) {
+//            return observable
+//                    .timeout(Constants.Api.TIMEOUT, TimeUnit.SECONDS)
+//                    .subscribeOn(Schedulers.computation())
+//                    .observeOn(AndroidSchedulers.mainThread());
+//        }
     }
 }

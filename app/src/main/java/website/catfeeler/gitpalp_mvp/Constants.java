@@ -8,6 +8,14 @@ public class Constants {
     private Constants() {}
 
     public interface Activity {
-        public static final String BUNDLE_KEY = "bundle_key";
+        String BUNDLE_KEY = "bundle_key";
+    }
+
+    public interface Api {
+        long TIMEOUT = 40L;
+    }
+
+    public interface Preference {
+        String TOKEN = "token";
     }
 }

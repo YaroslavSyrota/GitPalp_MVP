@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import website.catfeeler.gitpalp_mvp.App;
 import website.catfeeler.gitpalp_mvp.Constants;
+import website.catfeeler.gitpalp_mvp.presentation.dialog.ErrorDialog;
 
 /**
  * Created by CAT_Caterpiller on 16.03.2017.
@@ -64,5 +65,10 @@ public abstract class BaseActivity<P extends BaseActivityContract.Presenter>
     @Override
     public void readBundle(Bundle bundle) {
 
+    }
+
+    @Override
+    public void showErrorMessage(String message) {
+        ErrorDialog.create(this, message).show();
     }
 }
