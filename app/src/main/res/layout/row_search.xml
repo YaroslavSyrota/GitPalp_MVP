@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        android:id="@+id/btnBack_RS"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/element_horizontal_padding"
+        android:visibility="gone"
+        android:src="@drawable/ic_arrow_back" />
+
+    <ImageButton
+        android:id="@+id/btnSearch_RS"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/element_horizontal_padding"
+        android:paddingRight="@dimen/element_horizontal_padding"
+        android:src="@drawable/ic_search"/>
+
+    <EditText
+        android:id="@+id/etSearch_RS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/textview_padding_vertical"
+        android:paddingBottom="@dimen/textview_padding_vertical"
+        android:paddingLeft="@dimen/textview_padding_default"
+        android:paddingRight="@dimen/textview_padding_default"
+        android:layout_marginLeft="@dimen/element_horizontal_padding"
+        android:layout_toRightOf="@id/btnBack_RS"
+        android:layout_toLeftOf="@id/btnSearch_RS"
+        android:textColor="@color/primaryText"
+        android:textColorHint="@color/secondaryText"
+        android:textCursorDrawable="@drawable/shape_edittext_cursor"
+        android:hint="@string/search"
+        android:background="@drawable/bg_search_field"/>
+</RelativeLayout>

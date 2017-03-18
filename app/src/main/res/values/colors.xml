@@ -11,5 +11,6 @@
 
     <color name="base_white">#FFFFFF</color>
     <color name="base_black">#000000</color>
+    <color name="light_grey_background">#F0F0F0</color>
 
 </resources>

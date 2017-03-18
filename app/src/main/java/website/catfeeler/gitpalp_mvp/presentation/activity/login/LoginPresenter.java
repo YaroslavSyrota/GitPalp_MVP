@@ -22,6 +22,7 @@ import website.catfeeler.gitpalp_mvp.data.PreferenceController;
 import website.catfeeler.gitpalp_mvp.domain.interactors.LoginInteractor;
 import website.catfeeler.gitpalp_mvp.network.requests.LoginRequest;
 import website.catfeeler.gitpalp_mvp.network.responses.LoginResponse;
+import website.catfeeler.gitpalp_mvp.presentation.activity.profile.ProfileActivity;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
 import website.catfeeler.gitpalp_mvp.utils.ValidationUtils;
 
@@ -29,7 +30,7 @@ import website.catfeeler.gitpalp_mvp.utils.ValidationUtils;
  * Created by CAT_Caterpiller on 17.03.2017.
  */
 
-public class LoginPresenter extends LoginContract.Presenter<LoginContract.View> {
+public final class LoginPresenter extends LoginContract.Presenter<LoginContract.View> {
 
     private LoginInteractor loginInteractor;
     private PreferenceController preferenceController;
@@ -116,7 +117,7 @@ public class LoginPresenter extends LoginContract.Presenter<LoginContract.View> 
     private void successLogin(String token) {
         view.changeProgressState(false);
         preferenceController.saveToken(token);
-        view.showToast(token);
+        view.startAloneActivity(ProfileActivity.class);
     }
 
     private void error(Throwable throwable) {
