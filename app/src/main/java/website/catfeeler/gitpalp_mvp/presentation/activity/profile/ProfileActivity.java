@@ -10,7 +10,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.List;
+
 import website.catfeeler.gitpalp_mvp.R;
+import website.catfeeler.gitpalp_mvp.data.model.User;
+import website.catfeeler.gitpalp_mvp.data.model.UserRepository;
 import website.catfeeler.gitpalp_mvp.di.AppComponent;
 import website.catfeeler.gitpalp_mvp.presentation.activity.profile.di.DaggerProfileComponent;
 import website.catfeeler.gitpalp_mvp.presentation.base.BaseActivity;
@@ -70,5 +74,15 @@ public final class ProfileActivity extends BaseActivity<ProfileContract.Presente
     @Override
     public void changeProgressState(boolean isVisible) {
         progressBar.setVisibility(isVisible ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setProfile(User user) {
+
+    }
+
+    @Override
+    public void setRepositories(List<UserRepository> repositories) {
+
     }
 }

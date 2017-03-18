@@ -9,6 +9,7 @@ public class Constants {
 
     public interface Activity {
         String BUNDLE_KEY = "bundle_key";
+        String SEARCH_KEY = "search_key";
     }
 
     public interface Api {
