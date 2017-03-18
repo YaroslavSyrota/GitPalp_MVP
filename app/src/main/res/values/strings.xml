@@ -10,9 +10,9 @@
     <string name="ok">Ok</string>
     <string name="warning">Warning!</string>
     <string name="fill_all_fields">Please fill in all fields!</string>
-    <string name="email_empty">Email is empty!</string>
+    <string name="login_empty">Login is empty!</string>
     <string name="password_empty">Password is empty!</string>
-    <string name="email_not_valid">Invalid email!</string>
+    <string name="login_not_valid">Invalid login!</string>
     <string name="password_not_valid">Invalid password!</string>
 
     <!--   Home Activity   -->

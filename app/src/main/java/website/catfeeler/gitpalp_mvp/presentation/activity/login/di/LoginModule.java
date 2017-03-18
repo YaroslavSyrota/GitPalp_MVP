@@ -11,6 +11,7 @@ import website.catfeeler.gitpalp_mvp.network.RestApiClient;
 import website.catfeeler.gitpalp_mvp.presentation.activity.login.LoginContract;
 import website.catfeeler.gitpalp_mvp.presentation.activity.login.LoginPresenter;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
+import website.catfeeler.gitpalp_mvp.utils.ValidationUtils;
 
 /**
  * Created by CAT_Caterpiller on 17.03.2017.
@@ -22,8 +23,9 @@ public class LoginModule {
     @Provides @ActivityScope
     public LoginContract.Presenter provideLoginPresenter(LoginInteractor interactor,
                                                          PreferenceController controller,
-                                                         ErrorHandler errorHandler) {
-        return new LoginPresenter(interactor, controller, errorHandler);
+                                                         ErrorHandler errorHandler,
+                                                         ValidationUtils validationUtils) {
+        return new LoginPresenter(interactor, controller, errorHandler, validationUtils);
     }
 
     @Provides @ActivityScope
@@ -39,5 +41,10 @@ public class LoginModule {
     @Provides @ActivityScope
     public ErrorHandler provideErrorHandler() {
         return new ErrorHandler();
+    }
+
+    @Provides @ActivityScope
+    public ValidationUtils provideValidationUtils() {
+        return new ValidationUtils();
     }
 }

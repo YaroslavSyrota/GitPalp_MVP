@@ -15,6 +15,8 @@ public interface LoginContract {
         void changeProgressState(boolean isVisible);
         ContentResolver getResolver();
         <T extends BaseActivity> void startAloneActivity(Class<T> tClass);
+        void showLoginError(String errorMessage);
+        void showPasswordError(String errorMessage);
     }
 
     abstract class Presenter<V extends View> extends BaseActivityContract.Presenter<V> {

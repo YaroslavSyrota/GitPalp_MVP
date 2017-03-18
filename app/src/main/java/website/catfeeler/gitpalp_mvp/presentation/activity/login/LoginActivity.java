@@ -67,4 +67,14 @@ public final class LoginActivity extends BaseActivity<LoginContract.Presenter>
         intent.setFlags(IntentCompat.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+    @Override
+    public void showLoginError(String errorMessage) {
+        etLogin.setError(errorMessage);
+    }
+
+    @Override
+    public void showPasswordError(String errorMessage) {
+        etPassword.setError(errorMessage);
+    }
 }

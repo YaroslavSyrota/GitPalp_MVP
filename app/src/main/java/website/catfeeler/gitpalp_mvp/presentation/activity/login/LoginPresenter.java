@@ -23,6 +23,7 @@ import website.catfeeler.gitpalp_mvp.domain.interactors.LoginInteractor;
 import website.catfeeler.gitpalp_mvp.network.requests.LoginRequest;
 import website.catfeeler.gitpalp_mvp.network.responses.LoginResponse;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
+import website.catfeeler.gitpalp_mvp.utils.ValidationUtils;
 
 /**
  * Created by CAT_Caterpiller on 17.03.2017.
@@ -33,17 +34,39 @@ public class LoginPresenter extends LoginContract.Presenter<LoginContract.View> 
     private LoginInteractor loginInteractor;
     private PreferenceController preferenceController;
     private ErrorHandler errorHandler;
+    private ValidationUtils validationUtils;
     private String basic;
 
     @Inject
-    public LoginPresenter(LoginInteractor loginInteractor, PreferenceController preferenceController, ErrorHandler errorHandler) {
-        this.loginInteractor = loginInteractor;
-        this.preferenceController = preferenceController;
-        this.errorHandler = errorHandler;
+    public LoginPresenter(LoginInteractor loginInteractor,
+                          PreferenceController preferenceController,
+                          ErrorHandler errorHandler,
+                          ValidationUtils validationUtils) {
+        this.loginInteractor        = loginInteractor;
+        this.preferenceController   = preferenceController;
+        this.errorHandler           = errorHandler;
+        this.validationUtils        = validationUtils;
     }
 
     @Override
     void clickLogin(String login, String password) {
+        if (login.isEmpty()) {
+            view.showLoginError(view.getStringValue(R.string.login_empty));
+            return;
+        }
+        if (password.isEmpty()) {
+            view.showPasswordError(view.getStringValue(R.string.password_empty));
+            return;
+        }
+        if (!validationUtils.isValidLogin(login)) {
+            view.showLoginError(view.getStringValue(R.string.login_not_valid));
+            return;
+        }
+        if (!validationUtils.isValidPassword(password)) {
+            view.showPasswordError(view.getStringValue(R.string.password_not_valid));
+            return;
+        }
+
         String credentials = login + ":" + password;
         basic = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
 
