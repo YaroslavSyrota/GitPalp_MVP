@@ -46,6 +46,7 @@ public final class RepositoriesActivity extends BaseActivity<RepositoriesContrac
     @Override
     public void findUI() {
         btnBack         = (ImageButton) findViewById(R.id.btnBack_RS);
+        btnBack         .setVisibility(View.VISIBLE);
         btnSearch       = (ImageButton) findViewById(R.id.btnSearch_RS);
         etSearch        = (EditText) findViewById(R.id.etSearch_RS);
         recyclerView    = (RecyclerView) findViewById(R.id.recyclerView_RA);

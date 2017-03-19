@@ -35,6 +35,10 @@
             android:name=".presentation.activity.repositories.RepositoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"/>
+        <activity
+            android:name=".presentation.activity.details.DetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
 
     </application>
 

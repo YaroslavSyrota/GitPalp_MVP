@@ -14,6 +14,7 @@ import website.catfeeler.gitpalp_mvp.Constants;
 import website.catfeeler.gitpalp_mvp.data.model.Repository;
 import website.catfeeler.gitpalp_mvp.domain.interactors.RepositoriesInteractor;
 import website.catfeeler.gitpalp_mvp.network.responses.SearchResponse;
+import website.catfeeler.gitpalp_mvp.presentation.activity.details.DetailsActivity;
 import website.catfeeler.gitpalp_mvp.presentation.activity.repositories.supports.RepoRecyclerAdapter;
 import website.catfeeler.gitpalp_mvp.presentation.base.BaseRecyclerAdapter;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
@@ -82,11 +83,17 @@ public final class RepositoriesPresenter extends RepositoriesContract.Presenter<
 
     @Override
     void clickItem(int position) {
-        view.showToast(recyclerAdapter.getItem(position).name);
+        view.startActivity(DetailsActivity.class, prepareRepoBundle(recyclerAdapter.getItem(position)));
     }
 
     @Override
     void setSearch(String query) {
         this.query = query;
+    }
+
+    private Bundle prepareRepoBundle(Repository repository) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constants.Activity.REPO_KEY, repository);
+        return bundle;
     }
 }
