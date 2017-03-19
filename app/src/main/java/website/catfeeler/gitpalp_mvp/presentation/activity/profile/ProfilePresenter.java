@@ -15,7 +15,10 @@ import website.catfeeler.gitpalp_mvp.data.PreferenceController;
 import website.catfeeler.gitpalp_mvp.data.model.User;
 import website.catfeeler.gitpalp_mvp.data.model.UserRepository;
 import website.catfeeler.gitpalp_mvp.domain.interactors.ProfileInteractor;
+import website.catfeeler.gitpalp_mvp.presentation.activity.profile.supports.OwnerRecyclerAdapter;
+import website.catfeeler.gitpalp_mvp.presentation.base.BaseRecyclerAdapter;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
+import website.catfeeler.gitpalp_mvp.utils.ImageUtils;
 
 /**
  * Created by CAT_Caterpiller on 18.03.2017.
@@ -26,19 +29,26 @@ public final class ProfilePresenter extends ProfileContract.Presenter<ProfileCon
     private ProfileInteractor profileInteractor;
     private PreferenceController preferenceController;
     private ErrorHandler errorHandler;
+    private ImageUtils imageUtils;
+
+    private BaseRecyclerAdapter recyclerAdapter;
 
     @Inject
     public ProfilePresenter(ProfileInteractor profileInteractor,
                             PreferenceController preferenceController,
-                            ErrorHandler errorHandler) {
+                            ErrorHandler errorHandler,
+                            ImageUtils imageUtils) {
         this.profileInteractor = profileInteractor;
         this.preferenceController = preferenceController;
         this.errorHandler = errorHandler;
+        this.imageUtils = imageUtils;
     }
 
     @Override
     public void onViewCreated(@Nullable Bundle savedInstanceState) {
         super.onViewCreated(savedInstanceState);
+        recyclerAdapter = new OwnerRecyclerAdapter();
+        view.setRecyclerAdapter(recyclerAdapter);
         sendProfileRequest();
     }
 
@@ -67,7 +77,7 @@ public final class ProfilePresenter extends ProfileContract.Presenter<ProfileCon
 
     private void successRepositories(List<UserRepository> repositories) {
         view.changeProgressState(false);
-        view.setRepositories(repositories);
+        recyclerAdapter.addAll(repositories);
     }
 
     @Override
@@ -81,5 +91,10 @@ public final class ProfilePresenter extends ProfileContract.Presenter<ProfileCon
         Bundle bundle = new Bundle();
         bundle.putString(Constants.Activity.SEARCH_KEY, search);
         return bundle;
+    }
+
+    @Override
+    ImageUtils getImageUtils() {
+        return imageUtils;
     }
 }

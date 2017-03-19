@@ -20,5 +20,7 @@ public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
         contentUpdate(mDataItem);
     }
 
+    protected abstract void findUi();
+
     protected abstract void contentUpdate(final T dataItem);
 }

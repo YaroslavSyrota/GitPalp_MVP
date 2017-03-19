@@ -11,6 +11,7 @@ import website.catfeeler.gitpalp_mvp.network.RestApiClient;
 import website.catfeeler.gitpalp_mvp.presentation.activity.profile.ProfileContract;
 import website.catfeeler.gitpalp_mvp.presentation.activity.profile.ProfilePresenter;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
+import website.catfeeler.gitpalp_mvp.utils.ImageUtils;
 
 /**
  * Created by CAT_Caterpiller on 18.03.2017.
@@ -22,8 +23,9 @@ public class ProfileModule {
     @Provides @ActivityScope
     public ProfileContract.Presenter provideProfilePresenter(ProfileInteractor profileInteractor,
                                                              PreferenceController preferenceController,
-                                                             ErrorHandler errorHandler) {
-        return new ProfilePresenter(profileInteractor, preferenceController, errorHandler);
+                                                             ErrorHandler errorHandler,
+                                                             ImageUtils imageUtils) {
+        return new ProfilePresenter(profileInteractor, preferenceController, errorHandler, imageUtils);
     }
 
     @Provides @ActivityScope
@@ -39,5 +41,10 @@ public class ProfileModule {
     @Provides @ActivityScope
     public ErrorHandler provideErrorHandler() {
         return new ErrorHandler();
+    }
+
+    @Provides @ActivityScope
+    public ImageUtils provideImageUtils() {
+        return new ImageUtils();
     }
 }
