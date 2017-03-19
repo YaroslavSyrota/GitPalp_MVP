@@ -2,6 +2,7 @@ package website.catfeeler.gitpalp_mvp.presentation.activity.profile;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,7 @@ import website.catfeeler.gitpalp_mvp.data.model.User;
 import website.catfeeler.gitpalp_mvp.data.model.UserRepository;
 import website.catfeeler.gitpalp_mvp.domain.interactors.ProfileInteractor;
 import website.catfeeler.gitpalp_mvp.presentation.activity.profile.supports.OwnerRecyclerAdapter;
+import website.catfeeler.gitpalp_mvp.presentation.activity.repositories.RepositoriesActivity;
 import website.catfeeler.gitpalp_mvp.presentation.base.BaseRecyclerAdapter;
 import website.catfeeler.gitpalp_mvp.utils.ErrorHandler;
 import website.catfeeler.gitpalp_mvp.utils.ImageUtils;
@@ -82,8 +84,8 @@ public final class ProfilePresenter extends ProfileContract.Presenter<ProfileCon
 
     @Override
     void clickSearch(String query) {
-        if (!query.isEmpty()) {
-//            view.startActivity(RepositoryActivity.class, prepareSearchBundle(query));
+        if (!TextUtils.isEmpty(query)) {
+            view.startActivity(RepositoriesActivity.class, prepareSearchBundle(query));
         }
     }
 

@@ -14,6 +14,8 @@ public class Repository implements Model {
     public String name;
     @SerializedName("full_name")
     public String fullName;
+    @SerializedName("owner")
+    public Owner owner;
     @SerializedName("private")
     public boolean privateX;
     @SerializedName("html_url")

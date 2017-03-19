@@ -16,22 +16,22 @@ import website.catfeeler.gitpalp_mvp.network.responses.SearchResponse;
 
 public class ProfileInteractor {
 
-    private ProfileRepository profileepository;
+    private ProfileRepository profileRepository;
 
     @Inject
-    public ProfileInteractor(ProfileRepository profileepository) {
-        this.profileepository = profileepository;
+    public ProfileInteractor(ProfileRepository profileRepository) {
+        this.profileRepository = profileRepository;
     }
 
     public Observable<User> getUser(String token) {
-        return profileepository.getUser(token);
+        return profileRepository.getUser(token);
     }
 
     public Observable<List<UserRepository>> getUserRepositories(String token) {
-        return profileepository.getUserRepositories(token);
+        return profileRepository.getUserRepositories(token);
     }
 
     public Observable<SearchResponse> getSearchResponse(String querry) {
-        return profileepository.getSearch(querry);
+        return profileRepository.getSearch(querry);
     }
 }
